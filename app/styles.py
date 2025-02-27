@@ -1,0 +1,160 @@
+"""
+Module containing CSS styles for the application.
+"""
+
+from app.config_manager import config_manager
+
+
+def get_theme_colors():
+    """Get the theme colors from configuration."""
+    return config_manager.get_ui_config().get("theme_colors", {})
+
+
+def get_css():
+    """
+    Get the CSS styles for the application.
+
+    Returns:
+        str: The CSS styles as a string.
+    """
+    # Get theme colors from configuration
+    colors = get_theme_colors()
+    primary_color = colors.get("primary", "#0c326f")
+    secondary_color = colors.get("secondary", "#6c757d")
+    background_color = colors.get("background", "#f8f9fa")
+    text_color = colors.get("text", "#212529")
+
+    return f"""
+        <style>
+        .main {{
+            background-color: {background_color};
+        }}
+        h1, h2, h3 {{
+            color: {primary_color};
+        }}
+        .stButton>button {{
+            background-color: {primary_color};
+            color: white;
+            border-radius: 5px;
+            font-weight: bold;
+            padding: 10px 20px;
+        }}
+        .report-section {{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            margin-bottom: 20px;
+        }}
+        .report-header {{
+            text-align: center;
+            border-bottom: 2px solid {primary_color};
+            padding-bottom: 10px;
+            margin-bottom: 20px;
+        }}
+        .report-subheader {{
+            font-weight: bold;
+            color: {primary_color};
+            margin-top: 15px;
+            margin-bottom: 5px;
+            font-size: 1.1em;
+            padding-top: 10px;
+        }}
+        .findings {{
+            margin-left: 20px;
+            line-height: 1.6;
+        }}
+        .findings strong {{
+            color: {primary_color};
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }}
+        .disclaimer {{
+            font-size: 0.8em;
+            color: {secondary_color};
+            font-style: italic;
+            margin-top: 10px;
+        }}
+        .stImage {{
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            padding: 5px;
+        }}
+        .app-header {{
+            padding: 1.5rem 0;
+            text-align: center;
+            background-color: white;
+            border-radius: 5px;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+        }}
+        .app-header h1 {{
+            margin-bottom: 0.5rem;
+        }}
+        .sidebar-section {{
+            background-color: white;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }}
+        .form-section {{
+            background-color: white;
+            padding: 20px;
+            border-radius: 5px;
+            margin-bottom: 20px;
+            box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+        }}
+        .error-message {{
+            color: #dc3545;
+            background-color: #f8d7da;
+            border: 1px solid #f5c6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }}
+        .success-message {{
+            color: #28a745;
+            background-color: #d4edda;
+            border: 1px solid #c3e6cb;
+            border-radius: 5px;
+            padding: 10px;
+            margin-bottom: 10px;
+        }}
+        </style>
+    """
+
+
+def get_app_header_html():
+    """
+    Get the HTML for the application header.
+
+    Returns:
+        str: The HTML for the application header.
+    """
+    app_title = config_manager.get_page_config().get("page_title", "AI-Powered Precision in Radiology")
+
+    return f"""
+    <div class="report-header">
+        <h1>{app_title}</h1>
+        <p><b>AI-Enhanced Radiology Solutions</b></p>
+    </div>
+    """
+
+
+def get_app_description_html():
+    """
+    Get the HTML for the application description.
+
+    Returns:
+        str: The HTML for the application description.
+    """
+    return """
+    <div class="report-section">
+    <p>Upload your chest X-ray images and provide clinical information to generate a comprehensive, 
+    professional-grade radiology report. The system uses advanced AI to produce detailed analyses
+    formatted to medical standards.</p>
+    <p class="disclaimer">Note: This tool is for educational and demonstration purposes only. 
+    Always consult with a licensed radiologist for official medical diagnosis.</p>
+    </div>
+    """

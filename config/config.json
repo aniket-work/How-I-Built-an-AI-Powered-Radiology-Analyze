@@ -1,0 +1,44 @@
+{
+  "app": {
+    "name": "AI-Powered Radiology Report Generator",
+    "version": "1.0.0",
+    "description": "Generate professional-grade radiology reports using AI"
+  },
+  "api": {
+    "endpoints": {
+      "groq": "https://api.groq.com/openai/v1/chat/completions"
+    },
+    "models": {
+      "default": "llama3-70b-8192",
+      "alternatives": [
+        "llama3-8b-8192",
+        "mixtral-8x7b-32768"
+      ]
+    },
+    "parameters": {
+      "temperature": 0.2,
+      "max_tokens": 1500,
+      "top_p": 1.0,
+      "frequency_penalty": 0.0,
+      "presence_penalty": 0.0
+    }
+  },
+  "report": {
+    "format_version": "1.0",
+    "standard": "ACR",
+    "disclaimer": "This report was generated with AI assistance and is for educational/demonstration purposes only. It is not a substitute for professional medical interpretation. Always consult with a licensed radiologist."
+  },
+  "ui": {
+    "theme_colors": {
+      "primary": "#0c326f",
+      "secondary": "#6c757d",
+      "background": "#f8f9fa",
+      "text": "#212529",
+      "highlight": "#0d6efd"
+    },
+    "fonts": {
+      "heading": "sans-serif",
+      "body": "sans-serif"
+    }
+  }
+}

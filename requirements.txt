@@ -1,0 +1,11 @@
+transformers @ git+https://github.com/huggingface/transformers@88d960937c81a32bfb63356a2e8ecf7999619681
+streamlit
+requests
+pillow
+torch
+huggingface_hub
+python-dotenv
+accelerate
+bitsandbytes
+protobuf
+sentencepiece

@@ -1,0 +1,61 @@
+# AI-Powered Radiology Report Generator Settings
+
+# API Configuration
+api:
+  provider: groq
+  model: llama3-70b-8192
+  temperature: 0.2
+  max_tokens: 1500
+
+# UI Configuration
+ui:
+  title: "AI-Powered Precision in Radiology"
+  page_icon: "🏥"
+  layout: "wide"
+  initial_sidebar_state: "expanded"
+
+# Report Configuration
+report:
+  sections:
+    - EXAMINATION
+    - CLINICAL INFORMATION
+    - COMPARISON
+    - TECHNIQUE
+    - FINDINGS
+    - IMPRESSION
+    - RECOMMENDATIONS
+
+  # Findings subsections
+  findings_subsections:
+    - a. Lungs and Airways
+    - b. Pleura
+    - c. Mediastinum
+    - d. Cardiac Silhouette
+    - e. Hila
+    - f. Vasculature
+    - g. Bones and Soft Tissues
+    - h. Diaphragm and Upper Abdomen
+
+# Form Configuration
+form:
+  patient_info:
+    - name: "Patient Name"
+    - age: "Age"
+    - sex: "Sex"
+    - patient_id: "Patient ID"
+    - clinical_history: "Clinical History"
+
+  examination_details:
+    - indication: "Clinical Indication"
+    - technique: "Technique"
+    - comparison: "Comparison Studies"
+    - exam_date: "Examination Date"
+
+# File Upload Configuration
+upload:
+  allowed_types:
+    - png
+    - jpg
+    - jpeg
+  frontal_title: "Frontal View (PA)"
+  lateral_title: "Lateral View"
