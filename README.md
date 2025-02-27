@@ -1,37 +1,36 @@
 # How I Built an AI-Powered Radiology Analyze
 
-Practical Guide : How I Built an AI Event Planner That Plans Better Events Than I Do
+Practical Guide : AI Enhanced Radiology Solution
 
 ## TL;DR
-I built an AI-powered event planning Agent that helps users organize events by analyzing weather forecasts, finding suitable venues, and providing customized recommendations. The system uses a modular architecture with LangGraph to orchestrate multiple AI agents working in parallel. The code demonstrates how to create a practical AI application that combines natural language processing, external APIs, and a user-friendly web interface to deliver real business value.
+I built an app that uses AI to analyze medical images and generate comprehensive radiology reports. The system accepts frontal and lateral X-ray uploads along with patient information, then produces professional-grade reports following radiology standards. Using Streamlit for the frontend and Groq’s LLaMA model for AI analysis, this tool demonstrates how AI can assist in medical imaging interpretation while maintaining a modular, configurable codebase.
 
 ## Introduction:
-Have you ever tried to plan an event and found yourself juggling multiple browser tabs? Checking weather forecasts, searching for venues, reading reviews, and trying to make sense of it all? I faced this challenge repeatedly and thought, “There must be a better way.” That’s when I decided to build EventPro AI Planner, an intelligent assistant that handles the heavy lifting of event planning. In this article, I’ll walk you through how I built this system and what I learned along the way.
+When I first considered the challenge of making radiology more accessible, I thought about how AI could help bridge the gap between image and insight. X-rays contain vital information that only trained professionals can interpret — but what if AI could assist in this process? I created a tool that takes chest X-rays and transforms them into detailed medical reports, making the invisible visible through the power of artificial intelligence.
 
 ## What’s This Article About?
-This article shows you how I built a complete AI-powered event planning system from scratch. The EventPro AI Planner helps users organize events by:
+This article walks through my process of building an AI-powered radiology report generator. I’ll explain how I designed a web application that accepts chest X-ray images (both frontal and lateral views) along with patient information, then uses an AI model to analyze these images and generate comprehensive reports following professional medical standards.
 
- - Analyzing natural language queries to understand event requirements
- - Fetching real-time weather forecasts for the event date and location
- - Searching for and evaluating suitable venues based on event type
- - Processing all this information to generate comprehensive recommendations
+The system combines a user-friendly interface with powerful backend processing to produce reports that include detailed findings across different anatomical areas, clinical impressions, and recommendations — just like a human radiologist would provide.
 
-The system uses a modular architecture where specialized components work together through a state graph. Weather data and venue searches run in parallel for efficiency, while a synchronization mechanism ensures that all necessary information is available before generating final recommendations.
+I’ll break down the architecture decisions, from the modular code structure to the configuration-driven approach that makes the system adaptable and maintainable.
 
-I’ll walk through the key components of the system:
+Full Article : [https://medium.com/@learn-simplified/how-i-built-an-ai-powered-radiology-analyze-291365b12ebf
 
- - The user-friendly Streamlit web interface
- - The LangGraph workflow that orchestrates the AI processing
- - Integration with external services like OpenAI, weather APIs, and search engines
- - Data models and utility functions that support the core functionality
 
-By the end, you’ll understand how to build a practical AI application that solves a real business problem.
+## Tech Stack  
 
-Full Article : [https://medium.com/@learn-simplified/my-building-of-event-planning-ai-agent-9b4d355928d0
+| Component           | Technology          | Description                                          |
+|---------------------|---------------------|------------------------------------------------------|
+| **Frontend**        | Streamlit            | Web interface for uploading images and displaying reports |
+| **AI Model**        | Groq API (LLama3-70b)| Large language model for generating radiology reports |
+| **Image Processing**| Pillow               | Handling and manipulating uploaded X-ray images       |
+| **API Communication**| Requests            | Making API calls to the Groq service                  |
+| **Configuration**   | YAML, JSON           | Storing application settings and prompt templates     |
+| **Environment**     | python-dotenv        | Managing API keys and environment variables           |
+| **Styling**         | Custom CSS           | Professional UI styling for the application           |
+| **Project Structure**| Modular Python      | Separate files for constants, config, API, UI components |
 
-## Tech Stack
-
-![Design Diagram](design_docs/tech_stack.jpg)
 
 
 ## Architecture
@@ -39,7 +38,7 @@ Full Article : [https://medium.com/@learn-simplified/my-building-of-event-planni
 ![Design Diagram](design_docs/design.png)
 
 
-# Tutorial: My Building of Event Planning Agent
+# Tutorial: How I Built an AI-Powered Radiology Analyze
 
 ## Prerequisites
 - Python installed on your system.
@@ -69,7 +68,7 @@ Full Article : [https://medium.com/@learn-simplified/my-building-of-event-planni
 
 **Install Project Dependencies:**
 
-Follow these steps to set up and run the  "My Building of Event Planning Agent"
+Follow these steps to set up and run the  "How I Built an AI-Powered Radiology Analyze"
 
 1. Navigate to your project directory:
    ```
@@ -84,23 +83,16 @@ Follow these steps to set up and run the  "My Building of Event Planning Agent"
    This command installs all the necessary Python packages listed in the requirements.txt file.
 
 
-# Run - Hands-On Guide: My Building of Event Planning Agent
+# Run - Hands-On Guide: How I Built an AI-Powered Radiology Analyze
   
    ```
    streamlit run main.py
    ```
    
 ## Closing Thoughts
-The future of AI in business isn’t about replacing human workers — it’s about augmenting them with tools that handle routine information processing so they can focus on creativity and relationship building.
 
-As large language models continue to evolve, we’ll see AI assistants that can maintain context over longer periods, incorporate more diverse data sources, and provide increasingly nuanced recommendations. The next generation of business AI tools will likely feature:
+The future of AI in medical imaging extends far beyond what I’ve demonstrated here. As large language models and vision models continue to evolve, we’ll likely see AI systems that can detect subtle abnormalities with increasing accuracy, potentially identifying patterns that even experienced radiologists might miss.
 
-- Multi-modal interactions combining text, voice, and visual elements
-- Deeper integration with business systems and databases
-- More sophisticated reasoning that explains not just what to do but why
-- Personalization based on past interactions and preferences
-- Proactive suggestions that anticipate needs before they’re explicitly stated
+The integration of AI into healthcare workflows will become seamless, with systems that not only generate reports but also prioritize cases based on urgency, track changes over time, and even predict future health outcomes based on current images. While human oversight will remain essential, AI will increasingly serve as a powerful force multiplier, enabling healthcare systems to provide faster, more accurate diagnoses to more patients.
 
-Businesses that start implementing practical AI solutions today will be better positioned to adopt these advanced capabilities tomorrow. The approach demonstrated in this article — combining existing AI services with custom workflow orchestration — provides a solid foundation that can evolve as technology advances.
-
-The most exciting developments will come from domain experts working alongside AI specialists to create systems that truly understand the nuances of specific industries. By starting with focused applications like event planning and gradually expanding their capabilities, businesses can build AI assistants that become increasingly valuable partners to their human teams.
+The code structure I’ve presented — with its emphasis on modularity, configuration, and clean separation of concerns — provides a foundation that can evolve alongside these advancing technologies, allowing businesses to continuously improve their AI capabilities without rebuilding from scratch.
